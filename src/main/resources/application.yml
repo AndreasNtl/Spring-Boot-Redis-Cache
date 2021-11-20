@@ -1,0 +1,32 @@
+spring:
+  cache:
+    type: redis
+    redis:
+      host: localhost
+      port: 6379
+      time-to-live: 60000
+      cache-null-values: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userservice?useSSL=false
+    username: root
+    password: root
+    hikari:
+      initialization-fail-timeout: 0
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: false
+    hibernate:
+      ddl-auto: create
+
+flyway:
+  url: jdbc:mysql://localhost:3306/mysql
+  schemas: userservice
+  user: root
+  password: root
+
+redis:
+  short-cache-in-seconds: 50
+  long-cache-in-hours: 10
