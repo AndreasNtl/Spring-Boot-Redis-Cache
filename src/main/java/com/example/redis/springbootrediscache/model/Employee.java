@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -18,7 +19,16 @@ public class Employee implements Serializable {
     @GeneratedValue
     private int id;
 
-    @Column(name = "name", length = 30)
+    @Column(name = "name", nullable = false, length = 30)
     private String name;
+
+    @Column(name = "surname", nullable = false, length = 30)
+    private String surname;
+
+    @Column(name = "date_of_birth", nullable = false)
+    private LocalDate dateOfBirth;
+
+    @Column(name = "job_title", nullable = false, length = 50)
+    private String jobTitle;
 
 }
